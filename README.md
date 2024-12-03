@@ -2,7 +2,11 @@
  
 
 Répartition des Tâches :
+
+
 •	Levis Junior : Data Scientist - Exploration et Préparation des Données
+
+
 •	Hergi Diangue : Data Engineer - Création, Entraînement, et Évaluation des Modèles 
 
 
