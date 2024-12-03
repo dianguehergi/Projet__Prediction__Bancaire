@@ -1,49 +1,176 @@
-Répertoire Projet_Prediction_Bancaire
+  
+ 
 
-Ce répertoire principal contient toutes les ressources de ton projet de prédiction de souscription à un dépôt à terme. Il est structuré en plusieurs sous-dossiers et fichiers essentiels :
-
-Dossier Data :
-
-- Ce dossier contient les jeux de données (bank, bank-additional) qui ont été utilisés pour entraîner et tester les modèles.
-
-- Le sous-dossier bank contient probablement des fichiers de données spécifiques liés à la campagne bancaire.
+Répartition des Tâches :
+•	Levis Junior : Data Scientist - Exploration et Préparation des Données
+•	Hergi Diangue : Data Engineer - Création, Entraînement, et Évaluation des Modèles 
 
 
 
-Dossier document :
+ 
+ 
 
-- Ce dossier regroupe les documents relatifs à l'analyse et aux rapports du projet.
-- PROJET_1_Coding.pdf : Un document expliquant les objectifs et les étapes du projet.
-- Rapport Prédiction de Souscription.pdf : Un rapport de prédiction qui explique les résultats obtenus et les analyses effectuées.
-- README.md : Un fichier de description du projet, souvent utilisé pour fournir une vue d'ensemble du projet, des étapes à suivre pour l'exécuter, des dépendances, etc.
-- requirements.txt : Ce fichier liste les bibliothèques Python nécessaires pour exécuter le projet. Il est utilisé pour installer les dépendances facilement avec des outils comme pip.
+ 
+Année académique :
+2024-2025
+
+                                                                        
 
 
-Dossier NewNotebooks :
+Sommaire
 
-Ce dossier contient les notebooks, scripts et objets relatifs à l'entraînement et au déploiement des modèles.
-Bank Campaign Analysis.py, bank_marketing_analysis.ipynb : Scripts Python et notebooks Jupyter utilisés pour analyser les données, développer, entraîner, et évaluer les modèles de prédiction.
-best_model_pipeline.pkl, best_model.pkl, etc. : Des fichiers .pkl qui contiennent des modèles entraînés et des pipelines de transformation. Ces fichiers sont utilisés pour sauvegarder les objets nécessaires afin de les réutiliser pour des prédictions futures ou pour le déploiement.
-data_encoded.csv : Un fichier CSV contenant les données après encodage des variables catégorielles. Ce jeu de données est généralement utilisé pour l'entraînement des modèles.
-decision_tree_model1.pkl, gradient_boosting_model1.pkl, logistic_regression_model1.pkl, random_forest_model1.pkl : Différents modèles de machine learning sauvegardés sous forme de fichiers .pkl. Ils contiennent les modèles spécifiques pour la régression logistique, les arbres de décision, le gradient boosting, etc.
-Entrainement Evaluation Modeles.py : Un script Python qui s'occupe probablement de l'entraînement, de l'optimisation et de l'évaluation des différents modèles.
-encoder_dict.pkl : Un fichier contenant les encodages des variables catégorielles, utile pour appliquer le même encodage lors de la préparation de nouvelles données.
-scaler.pkl : Un fichier .pkl contenant un objet StandardScaler ou similaire, utilisé pour mettre à l'échelle les données numériques.
-streamlit_design.py et Deploiement.py : Scripts utilisés pour le déploiement du modèle via Streamlit. Ils contiennent probablement le code pour créer l'interface utilisateur permettant d'interagir avec le modèle en ligne.
-Structure Globale
-Exploration et Préparation des Données : Data, NewNotebooks/bank_marketing_analysis.ipynb.
 
-Ces fichiers contiennent le jeu de données initial et les notebooks permettant d'explorer et préparer ces données.
-Entraînement et Évaluation des Modèles : NewNotebooks/Entrainement Evaluation Modeles.py, best_model.pkl, best_model_pipeline.pkl, etc.
+1.	Contexte du Projet
+2.	Étapes Réalisées
+Étape 1 : Chargement des Données et Nettoyage
+Étape 2 : Préparation des Données
+Étape 3 : Équilibrage des Données
+Étape 4 : Division des Données
+Étape 5 : Entraînement et Évaluation des Modèles
+Étape 6 : Optimisation des Hyperparamètres
+Étape 7 : Validation et Généralisation
+Étape 8 : Calcul du Bénéfice Net Business
+Étape 9 : Sauvegarde du Modèle
+Étape 10 : Déploiement avec Streamlit
+3.	Problèmes Rencontrés et Solutions
+4.	Conclusions
 
-Ces fichiers contiennent les modèles entraînés ainsi que des scripts Python qui s'occupent de l'entraînement et de l'évaluation des modèles.
-Déploiement : NewNotebooks/Deploiement.py, streamlit_design.py.
 
-Ces fichiers sont utilisés pour créer un tableau de bord avec Streamlit pour que les utilisateurs puissent tester les prédictions des modèles en ligne.
-Conclusion
-Ton projet est bien organisé en plusieurs étapes logiques :
 
-Données : Collecte et exploration dans le dossier Data.
-Documentation : Les informations et le rapport du projet sont centralisés dans document.
-Scripts et Notebooks : Utilisés pour la manipulation, l'entraînement des modèles, et l'analyse dans NewNotebooks.
-Déploiement : Le code pour le déploiement en ligne et l'interface utilisateur est également inclus dans NewNotebooks.
+
+
+
+
+
+
+
+
+
+
+Contexte du Projet
+
+Le projet vise à prédire si un client souscrira à un dépôt à terme en se basant sur des données collectées lors de campagnes de télémarketing. Ces informations permettent à la banque de maximiser le taux de conversion tout en réduisant les coûts d'opportunité et d'améliorer l'efficacité des campagnes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Étapes Réalisées
+
+Étape 1 : Chargement des Données et Nettoyage
+- Chargement des données brutes à partir du fichier bank.csv.
+- Suppression des doublons pour garantir l'unité des observations.
+- Gestion des valeurs manquantes en utilisant le mode pour chaque colonne.
+- Conversion de la variable cible (y) en format binaire : 1 pour "yes" et 0 pour "no".
+
+
+Étape 2 : Préparation des Données
+- Séparation des données en caractéristiques (X) et variable cible (y).
+- Identification des colonnes numériques et catégorielles.
+- Prétraitement avec ColumnTransformer :
+  - StandardScaler pour les colonnes numériques.
+  - OneHotEncoder pour les colonnes catégorielles.
+
+
+Étape 3 : Équilibrage des Données
+- Utilisation de SMOTE pour équilibrer les classes minoritaires en créant des échantillons synthétiques.
+- Stratégie d'échantillonnage à 70 % de la classe majoritaire pour garantir un équilibre suffisant.
+
+Étape 4 : Division des Données
+- Division en ensembles d'entraînement (70 %) et de test (30 %).
+
+
+
+Étape 5 : Entraînement et Évaluation des Modèles
+- Modèles testés :
+  - Régression Logistique
+  - Random Forest
+  - Gradient Boosting
+  - SVC
+- Métriques d'évaluation :
+  - Précision
+  - ROC AUC Score
+  - Matrice de confusion
+  - Classification Report
+- Comparaison des performances des modèles avec des graphiques.
+
+
+Étape 6 : Optimisation des Hyperparamètres
+- Optimisation de Random Forest avec GridSearchCV :
+  - Meilleurs paramètres identifiés : n_estimators, max_depth, min_samples_split.
+- Ré-entraînement du modèle avec les hyperparamètres optimaux.
+
+Étape 7 : Validation et Généralisation
+- Validation croisée sur l'ensemble d'entraînement pour vérifier la robustesse.
+- Évaluation finale sur l'ensemble de test.
+
+
+Étape 8 : Calcul du Bénéfice Net Business
+- Métriques financières :
+  - Gain par client converti (VP) = 1 000 €
+  - Coût d'opportunité manqué (FN) = 500 €
+  - Gain pour une tentative évitée (VN) = 100 €
+  - Coût d'une tentative infructueuse (FP) = 50 €
+- Calcul :
+  - Utilisation de la matrice de confusion pour déterminer le bénéfice net.
+
+
+Étape 9 : Sauvegarde du Modèle
+- Sauvegarde du meilleur modèle optimisé (Random Forest) dans best_model.pkl.
+
+
+Étape 10 : Déploiement avec Streamlit
+- Déploiement d'une interface interactive :
+  - Entrée utilisateur (âge, emploi, état civil, etc.).
+  - Pour déployer mon application Streamlit avec Anaconda, j'ai commencé par créer un environnement avec la commande `conda create -n model python=3.9` et je l'ai activé avec `conda activate model `. Ensuite, j'ai installé Streamlit en utilisant `pip install streamlit` et préparé mon fichier source (par exemple `Déploiement.py`). J'ai lancé l'application localement avec `streamlit run Déploiement.py`. Pour un déploiement public, je peux envisager des plateformes comme Streamlit Cloud ou Heroku.
+  - Affichage de la prédiction et du bénéfice net estimé.
+
+
+
+Problèmes Rencontrés et Solutions
+Problème 1 : Désynchronisation des Colonnes lors de la Prédiction
+- Cause : Les colonnes encodées différaient entre l'entraînement et la prédiction.
+- Solution : Les transformations ont été standardisées à travers toutes les étapes en sauvegardant le préprocesseur dans preprocessor.pkl.
+
+
+
+Problème 2 : Modèle Non Ajusté
+- Cause : Erreur NotFittedError lors de l'utilisation du ColumnTransformer.
+- Solution : Vérification et ajustement des objets avant de sauvegarder.
+
+
+
+Problème 3 : Absence de Fichiers Nécessaires
+- Cause : Certains fichiers (préprocesseur, modèle) manquaient lors du déploiement.
+- Solution : Tous les objets critiques (préprocesseur, modèle) ont été sauvegardés et chargés correctement.
+
+
+Problème 4 : Erreur lors de l'Affichage des Scores de Performance et de la Courbe ROC
+- Cause : Utilisation incorrecte des données pour calculer la courbe ROC et les scores de performance, menant à des erreurs de taille d’échantillon. 
+- Solution : Modification des méthodes pour utiliser des échantillons cohérents entre les prédictions et les valeurs réelles, garantissant ainsi la validité des métriques affichées.
+
+
+
+
+
+
+
+
+
+
+
+Conclusions
+
+
+- Meilleur Modèle : Le Random Forest optimisé s'est avéré être le modèle le plus performant avec des scores élevés en précision et AUC.
+- impact Business : L'intégration du bénéfice net a montré un potentiel important pour maximiser la rentabilité des campagnes marketing.
+- Déploiement : Le tableau de bord Streamlit offre une interface interactive et intuitive pour les utilisateurs.
+Ce projet a permis de développer un modèle prédictif robuste capable de prévoir si un client souscrira à un dépôt à terme. Grâce à l'utilisation d'algorithmes de machine learning avancés, à l'optimisation des hyperparamètres et à l'équilibrage des données, nous avons réussi à atteindre des résultats satisfaisants en termes de précision et de ROC AUC. Le déploiement via Streamlit a offert une solution conviviale pour permettre aux utilisateurs finaux d'explorer les prédictions et de comprendre les bénéfices financiers associés. L'intégration du calcul de bénéfice net a également montré l'importance de prendre en compte des aspects financiers dans l'évaluation de la performance des modèles prédictifs. En conclusion, ce projet a démontré une approche complète, depuis l'acquisition des données jusqu'au déploiement final, avec un impact significatif sur l'optimisation des campagnes marketing bancaires.
