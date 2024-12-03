@@ -1,4 +1,4 @@
-Répertoire PROJETS1
+Répertoire Projet_Prediction_Bancaire
 
 Ce répertoire principal contient toutes les ressources de ton projet de prédiction de souscription à un dépôt à terme. Il est structuré en plusieurs sous-dossiers et fichiers essentiels :
 
