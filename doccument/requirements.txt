@@ -1,0 +1,17 @@
+Bibliothèques Utilisées
+Voici la liste de toutes les bibliothèques que j'ai importées dans les différents fichiers de du projet :
+
+• **Pandas** (import pandas as pd) : Utilisé pour la manipulation et l'analyse des données (chargement, nettoyage, exploration).
+• **NumPy** (import numpy as np) : Utilisé pour les opérations mathématiques et le traitement des données numériques.
+• **Matplotlib** (import matplotlib.pyplot as plt) : Utilisé pour la création de graphiques et la visualisation des données.
+• **Seaborn** (import seaborn as sns) : Utilisé pour créer des visualisations statistiques plus esthétiques.
+• **Scikit-learn** (from sklearn import ...) : Une bibliothèque pour le machine learning, qui inclut :
+  - LogisticRegression, RandomForestClassifier, GradientBoostingClassifier, SVC : Modèles de machine learning utilisés pour la classification.
+  - classification_report, confusion_matrix, roc_auc_score, accuracy_score, roc_curve : Outils d'évaluation des performances des modèles.
+  - train_test_split, GridSearchCV, cross_val_score : Méthodes pour la division des données, l'optimisation des hyperparamètres, et la validation croisée.
+  - StandardScaler, OneHotEncoder : Utilisés pour normaliser les données et encoder les variables catégorielles.
+  - ColumnTransformer : Utilisé pour appliquer plusieurs prétraitements (normalisation et encodage) aux colonnes des données.
+• **Imbalanced-learn** (from imblearn.over_sampling import SMOTE) : SMOTE est utilisé pour équilibrer les classes dans les données (lorsque la variable cible est déséquilibrée).
+• **Joblib** (import joblib) : Utilisé pour sauvegarder et charger des objets Python, tels que les modèles entraînés, les pipelines de transformation, etc.
+• **Streamlit** (import streamlit as st) : Utilisé pour développer l'interface de tableau de bord interactive pour déployer le modèle en ligne.
+les principales bibliothèques utilisées pour chaque étape du projet : manipulation des données, visualisation, modélisation, évaluation, et déploiement.
